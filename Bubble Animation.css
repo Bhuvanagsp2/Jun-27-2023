@@ -1,0 +1,171 @@
+:root {
+	font-size: 2vmin;
+
+	--inset-color1: #0fb4ff;
+	--inset-color2: #ff4484;
+	--inset-color3: #ffeb3b;
+	--inset-color4: #fff;
+	--transition: all 1s linear;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+	background: black;
+}
+
+.bubble {
+	position: absolute;
+	width: var(--bubble-size);
+	height: var(--bubble-size);
+	border-radius: 50%;
+	box-shadow: inset 0 0 calc(var(--bubble-size) / 8) rgba(255, 255, 255, 0.25);
+	animation: animate 10s ease-in-out infinite;
+}
+
+.one {
+	--bubble-size: 100px;
+	--origin-transform: calc(90% - var(--bubble-size) / 2);
+	top: var(--origin-transform);
+	left: var(--origin-transform);
+	animation-delay: 0.1s;
+}
+
+.two {
+	--bubble-size: 150px;
+	--origin-transform: calc(80% - var(--bubble-size) / 2);
+	left: var(--origin-transform);
+	animation-delay: 0.1s;
+}
+
+.three {
+	--bubble-size: 200px;
+	--origin-transform: calc(70% - var(--bubble-size) / 2);
+	top: var(--origin-transform);
+	animation-delay: 0.1s;
+}
+
+.four {
+	--bubble-size: 80px;
+	--origin-transform: calc(70% - var(--bubble-size) / 2);
+	top: var(--origin-transform);
+	margin-left: 80%;
+	animation-delay: 0.1s;
+}
+
+.five {
+	--bubble-size: 80px;
+	--origin-transform: calc(50% - var(--bubble-size) / 2);
+	top: var(--origin-transform);
+	margin-left: 90%;
+	animation-delay: 0.1s;
+}
+
+.six {
+	--bubble-size: 250px;
+	--origin-transform: calc(50% - var(--bubble-size) / 2);
+	margin-top: 25%;
+	margin-left: 50%;
+	animation-delay: 0.1s;
+}
+
+.seven {
+	--bubble-size: 150px;
+	--origin-transform: calc(50% - var(--bubble-size) / 2);
+	margin-top: 32%;
+	margin-left: 30%;
+	animation-delay: 0.1s;
+}
+
+.eight {
+	--bubble-size: 70px;
+	--origin-transform: calc(30% - var(--bubble-size) / 2);
+	margin-top: 15%;
+	margin-left: 30%;
+	animation-delay: 0.1s;
+}
+
+.nine {
+	--bubble-size: 150px;
+	--origin-transform: calc(30% - var(--bubble-size) / 2);
+	margin-top: 5%;
+	margin-left: 10%;
+	animation-delay: 0.1s;
+}
+
+.ten {
+	--bubble-size: 80px;
+	--origin-transform: calc(30% - var(--bubble-size) / 2);
+	margin-top: 10%;
+	margin-left: 50%;
+	animation-delay: 0.1s;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		transform: translateY(-20%);
+	}
+	50% {
+		transform: translateY(20%);
+	}
+}
+
+.bubble::after,
+.bubble::before {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	background: #d8d7d7;
+	z-index: 10;
+	filter: blur(calc(var(--bubble-size) / 75));
+	transition: var(--transition);
+}
+
+.bubble::before {
+	top: 25%;
+	left: 22.5%;
+	width: calc(var(--bubble-size) / 7);
+	height: calc(var(--bubble-size) / 7);
+}
+
+.bubble::after {
+	top: 40%;
+	left: 40%;
+	width: calc(var(--bubble-size) / 10);
+	height: calc(var(--bubble-size) / 10);
+}
+
+.bubble span {
+	position: absolute;
+	border-radius: 50%;
+	transition: var(--transition);
+}
+
+.bubble span:nth-child(1){
+	inset: calc(var(--bubble-size) / 20);
+	border-left: calc(var(--bubble-size) / 13.3) solid var(--inset-color1);
+	filter: blur(calc(var(--bubble-size) / 25));
+}
+
+.bubble span:nth-child(2) {
+	inset: calc(var(--bubble-size) / 20);
+	border-right: calc(var(--bubble-size) / 13.3) solid var(--inset-color2);
+	filter: blur(calc(var(--bubble-size) / 25));
+}
+
+.bubble span:nth-child(3) {
+	inset: calc(var(--bubble-size) / 10);
+	border-top: calc(var(--bubble-size) / 13.3) solid var(--inset-color3);
+	filter: blur(calc(var(--bubble-size) / 25));
+}
+
+.bubble span:nth-child(4) {
+	inset: calc(var(--bubble-size) / 6.7);
+	border-left: calc(var(--bubble-size) / 13.3) solid var(--inset-color2);
+	filter: blur(calc(var(--bubble-size) / 16.7));
+}
